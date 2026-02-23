@@ -1,0 +1,1 @@
+# Comando não reconhecido
