@@ -47,12 +47,23 @@ console.log(data_analyst_ativos)
 console.log(dev_4000)
 console.log(manager_30)
 
-document.addEventListener("DOMContentLoaded", function () {
+let container = document.getElementById('container')
+
+function createCard(users){
+    let div = document.createElement('div')
+    let span = document.createElement('span')
+    span.innerHTML = `${users.name} ${users.age}`
+    div.appendChild(span)
+
+    return div
+}
+
+document.addEventListener("DOMContentLoaded", function(){
 
     let container = document.getElementById('container')
 
-    func_Ativos.forEach(user => {
-        const card = createCard(user)
+    func_Ativos.forEach(pessoa => {
+        const card = createCard(pessoa)
         container.appendChild(card)
     })
 
