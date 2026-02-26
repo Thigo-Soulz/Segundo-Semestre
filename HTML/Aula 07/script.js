@@ -20,4 +20,4 @@ pessoas.push(pessoa)
 pessoas.push(pessoa2)
 pessoas.push(pessoa3)
 
-console.log(pessoas)
+console.log(pessoas[1])
