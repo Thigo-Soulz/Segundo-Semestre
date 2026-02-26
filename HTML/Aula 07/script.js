@@ -44,5 +44,12 @@ let conteiner = document.getElementById('container')
 function createCard(pessoa){
     let div = document.createElement('div')
     let span = document.createElement('span')
-    span.innerHTML = $(pessoa.name) $(pessoa.idade)
+    span.innerHTML = `${pessoa.name} ${pessoa.idade}`
+    div.appendChild(span)
+
+    return div
 }
+
+filteradpeople.forEach(pessoa => {const card = createCard(pessoa)
+    conteiner.appendChild(card)
+})
