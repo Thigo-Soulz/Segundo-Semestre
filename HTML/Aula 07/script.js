@@ -39,7 +39,7 @@ console.log(filteradpeople)
 console.log(findLeticia)
 console.log(pessoas.indexOf(findLeticia))
 
-let conteiner = document.getElementById('container')
+let container = document.getElementById('container')
 
 function createCard(pessoa){
     let div = document.createElement('div')
@@ -51,5 +51,5 @@ function createCard(pessoa){
 }
 
 filteradpeople.forEach(pessoa => {const card = createCard(pessoa)
-    conteiner.appendChild(card)
+    container.appendChild(card)
 })
