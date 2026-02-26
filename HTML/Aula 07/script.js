@@ -15,9 +15,23 @@ const pessoa3 = {
     lastname: "Clara",
     age : 18 
 }
+const pessoa4 = {
+    name : "Thiago",
+    lastname: "Vilhena",
+    age : 18 
+}
+const pessoa5 = {
+    name : "Leticia",
+    lastname: "Costa",
+    age : 18 
+}
 
 pessoas.push(pessoa)
 pessoas.push(pessoa2)
 pessoas.push(pessoa3)
+pessoas.push(pessoa4)
+pessoas.push(pessoa5)
+
+const
 
 console.log(pessoas[1])
