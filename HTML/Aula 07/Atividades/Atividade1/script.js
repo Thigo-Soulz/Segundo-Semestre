@@ -58,6 +58,6 @@ function createCard(users){
     return div
 }
 
-func_Ativos.forEach(pesso => {const card = createCard(pessoa)
+func_Ativos.forEach(pessoa => {const card = createCard(pessoa)
     container.appendChild(card)
 })
