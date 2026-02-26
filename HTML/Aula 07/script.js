@@ -23,7 +23,7 @@ const pessoa4 = {
 const pessoa5 = {
     name : "Leticia",
     lastname: "Costa",
-    age : 18 
+    age : 19 
 }
 
 pessoas.push(pessoa)
@@ -32,6 +32,6 @@ pessoas.push(pessoa3)
 pessoas.push(pessoa4)
 pessoas.push(pessoa5)
 
-const
+const filteradpeople = pessoa.filter((p) =>{p.age < 20})
 
 console.log(pessoas[1])
