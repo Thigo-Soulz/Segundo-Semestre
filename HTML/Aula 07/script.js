@@ -36,3 +36,4 @@ const filteradpeople = pessoas.filter((p) => p.age < 20)
 const findLeticia = pessoas.find((p) => p.name =="Leticia")
 
 console.log(filteradpeople)
+console.log(findLeticia)
