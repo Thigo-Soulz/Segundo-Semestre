@@ -37,4 +37,4 @@ const findLeticia = pessoas.find((p) => p.name =="Leticia")
 
 console.log(filteradpeople)
 console.log(findLeticia)
-console.log(pessoa.indexOf(findLeticia))
+console.log(pessoas.indexOf(findLeticia))
