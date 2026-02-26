@@ -32,6 +32,6 @@ pessoas.push(pessoa3)
 pessoas.push(pessoa4)
 pessoas.push(pessoa5)
 
-const filteradpeople = pessoas.filter((p) =>{p.age < 20})
+const filteradpeople = pessoas.filter((p) => p.age < 20)
 
 console.log(filteradpeople)
