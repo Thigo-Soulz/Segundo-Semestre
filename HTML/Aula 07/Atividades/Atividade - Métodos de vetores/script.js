@@ -17,8 +17,8 @@ const users = [
     ]
 
 
-const func_Ativos = users.filter((p) => p.active == "true")
-const func_inativos = users.filter((p) => p.active == "false")
+const func_Ativos = users.filter((p) => p.active == true)
+const func_inativos = users.filter((p) => p.active == false)
 const devs =users.filter((p) => p.role == "dev")
 
 console.log(func_Ativos)
