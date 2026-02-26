@@ -38,3 +38,11 @@ const findLeticia = pessoas.find((p) => p.name =="Leticia")
 console.log(filteradpeople)
 console.log(findLeticia)
 console.log(pessoas.indexOf(findLeticia))
+
+let conteiner = document.getElementById('container')
+
+function createCard(pessoa){
+    let div = document.createElement('div')
+    let span = document.createElement('span')
+    span.innerHTML = $(pessoa.name) $(pessoa.idade)
+}
