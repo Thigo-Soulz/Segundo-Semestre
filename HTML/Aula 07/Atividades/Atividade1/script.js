@@ -58,13 +58,7 @@ function createCard(users){
     return div
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-
-    let container = document.getElementById('container')
-
-    func_Ativos.forEach(pessoa => {
-        const card = createCard(pessoa)
-        container.appendChild(card)
-    })
-
+func_Ativos.forEach(pessoa => {
+    const card = createCard(pessoa)
+    container.appendChild(card)
 })
