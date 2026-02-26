@@ -44,7 +44,7 @@ let container = document.getElementById('container')
 function createCard(pessoa){
     let div = document.createElement('div')
     let span = document.createElement('span')
-    span.innerHTML = `${pessoa.name} ${pessoa.idade}`
+    span.innerHTML = `${pessoa.name} ${pessoa.age}`
     div.appendChild(span)
 
     return div
