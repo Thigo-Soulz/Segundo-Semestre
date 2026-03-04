@@ -73,6 +73,6 @@ const somarArr = arr.reduce((acc, value)=>{
 }, 0)
 console.log(somarArr)
 const ageAVG = PermissionStatus.reduce((acc,users)=>{
-    return acc + users.age / users.length
-}, 0)
+    return acc + users.age
+}, 0)/users.length
 console.log(ageAVG)
