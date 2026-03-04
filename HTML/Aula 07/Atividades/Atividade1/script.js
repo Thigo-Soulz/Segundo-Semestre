@@ -86,9 +86,9 @@ const mappedArr = arr2.map((arr) =>{
 })
 
 console.log(mappedArr)
-console.log(pessoas)
+console.log(users)
 
-const mappedPeople = pessoas.map((pessoa) =>{
-    return pessoa.name
+const mappedPeople = users.map((users) =>{
+    return users.name
 })
 console.log(mappedPeople)
