@@ -61,7 +61,7 @@
 // func_Ativos.forEach(users => {
 //     const card = createCard(users)
 //     container.appendChild(card)
-// })
+
 // Metodo filter -> filtrar de um vetor com base em uma condição 
 // Metodo find -> encontrar um valor com base em uma condição 
 // Metodo reduce -> Reduz o vetor para um unico valor
