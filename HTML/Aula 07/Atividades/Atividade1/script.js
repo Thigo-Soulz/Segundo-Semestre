@@ -77,3 +77,18 @@ const ageAVG = users.reduce((acc, user) => {
 }, 0) / users.length
 
 console.log(ageAVG)
+
+//
+const arr2 = [1,2,3,4,5]
+
+const mappedArr = arr2.map((arr) =>{
+    return arr * 2 
+})
+
+console.log(mappedArr)
+console.log(pessoas)
+
+const mappedPeople = pessoas.map((pessoa) =>{
+    return pessoa.name
+})
+console.log(mappedPeople)
