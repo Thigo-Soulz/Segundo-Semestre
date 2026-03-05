@@ -15,115 +15,79 @@ const users = [
     { id: 14, name: 'Gustavo', age: 23, salary: 3100, active: false, role: 'dev' },
     { id: 15, name: 'Larissa', age: 34, salary: 7600, active: true, role: 'manager' }
     ]
-
-
-const func_Ativos = users.filter((p) => p.active == true)
-const func_inativos = users.filter((p) => p.active == false)
-const devs =users.filter((p) => p.role == "dev")
-const designer =users.filter((p) => p.role == "designer")
-const manager =users.filter((p) => p.role == "manager")
-const data_analyst =users.filter((p) => p.role == "data_analyst")
-const maior_5000 =users.filter((p) => p.salary >= 5000)
-const menor_4000 =users.filter((p) => p.salary <= 4000)
-const idade_30 =users.filter((p) => p.salary >= 30)
-const menor_25 =users.filter((p) => p.salary <= 25)
-const data_analyst_ativos =users.filter((p) => p.role == "data_analyst" && p.active == true)
-const dev_4000 =users.filter((p) => p.role == "dev" && p.salary >= 4000)
-const manager_30 =users.filter((p) => p.role == "manager" && p.age >= 30)
-
-console.log(func_Ativos)
-console.log(func_inativos)
-console.log(devs)
-console.log(designer)
-console.log(manager)
-console.log(data_analyst)
-console.log(maior_5000)
-console.log(menor_4000)
-console.log(idade_30)
-console.log(menor_25)
-console.log(devs)
-
-console.log(data_analyst_ativos)
-console.log(dev_4000)
-console.log(manager_30)
-
-let container = document.getElementById('container')
-
-function createCard(users){
-    let div = document.createElement('div')
-    let span = document.createElement('span')
-    span.innerHTML = `${users.name} ${users.age}`
-    div.appendChild(span)
-
+    
+    const ativos = users.filter(u => u.active)
+    const inativos = users.filter(u => !u.active)
+    
+    const devs = users.filter(u => u.role === "dev")
+    const designers = users.filter(u => u.role === "designer")
+    const managers = users.filter(u => u.role === "manager")
+    const analysts = users.filter(u => u.role === "data_analyst")
+    
+    const somaSalarios = users.reduce((acc,u)=> acc + u.salary,0)
+    const mediaSalarios = somaSalarios / users.length
+    
+    const mediaIdade = users.reduce((acc,u)=> acc + u.age,0) / users.length
+    
+    const usuariosAtivos = ativos.length
+    const usuariosInativos = inativos.length
+    
+    const maiorSalario = Math.max(...users.map(u=>u.salary))
+    const menorSalario = Math.min(...users.map(u=>u.salary))
+    
+    const somaSalariosAtivos = ativos.reduce((acc,u)=> acc + u.salary,0)
+    
+    const mediaSalarioAtivos =
+    ativos.reduce((acc,u)=> acc + u.salary,0) / ativos.length
+    
+    const totalFolha = somaSalarios
+    
+    const usuariosPorCargo = users.reduce((acc,u)=>{
+    acc[u.role] = (acc[u.role] || 0) + 1
+    return acc
+    },{})
+    
+    const lista5000 = users
+    .filter(u=>u.salary > 5000)
+    .map(u=>({name:u.name, role:u.role}))
+    
+    const managersAtivos =
+    users.filter(u=>u.role === "manager" && u.active)
+    
+    const mediaIdadeManagers =
+    managersAtivos.reduce((acc,u)=>acc + u.age,0) / managersAtivos.length
+    
+    const somaPorCargo = users.reduce((acc,u)=>{
+    acc[u.role] = (acc[u.role] || 0) + u.salary
+    return acc
+    },{})
+    
+    const cargoMaiorSalario =
+    Object.keys(somaPorCargo)
+    .reduce((a,b)=> somaPorCargo[a] > somaPorCargo[b] ? a : b)
+    
+    const maiorSalarioAtivo =
+    ativos.reduce((maior,u)=> u.salary > maior.salary ? u : maior)
+    
+    const container = document.getElementById("container")
+    
+    function createCard(user){
+    const div = document.createElement("div")
+    div.innerHTML = `${user.name} - ${user.age}`
     return div
-}
-
-func_Ativos.forEach(users => {
-    const card = createCard(users)
-    container.appendChild(card)
-})
-
-// Metodo filter -> filtrar de um vetor com base em uma condição 
-// Metodo find -> encontrar um valor com base em uma condição 
-// Metodo reduce -> Reduz o vetor para um unico valor
-
-const arr = [1,2,3,4,5]
-const somarArr = arr.reduce((acc, value)=>{
-    return acc + value
-}, 0)
-console.log(somarArr)
-const ageAVG = users.reduce((acc, user) => {
-    return acc + user.age
-}, 0) / users.length
-
-console.log(ageAVG)
-
-//
-const arr2 = [1,2,3,4,5]
-
-const mappedArr = arr2.map((arr) =>{
-    return arr * 2 
-})
-
-console.log(mappedArr)
-console.log(users)
-
-const mappedPeople = users.map((users) =>{
-    return users.name
-})
-console.log(mappedPeople)
-
-// 11. Soma total dos salários
-const somaSalarios = users.reduce((acc, user) => acc + user.salary, 0)
-
-// 12. Média salarial
-const mediaSalarios = somaSalarios / users.length
-
-// 13. Média de idade
-const mediaIdade = users.reduce((acc, user) => acc + user.age, 0) / users.length
-
-// 14. Contar usuários ativos
-const usuariosAtivos = users.filter(user => user.active).length
-
-// 15. Contar usuários inativos
-const usuariosInativos = users.filter(user => !user.active).length
-
-// 16. Maior salário
-const maiorSalario = Math.max(...users.map(user => user.salary))
-
-// 17. Menor salário
-const menorSalario = Math.min(...users.map(user => user.salary))
-
-// 18. Soma dos salários dos usuários ativos
-const somaSalariosAtivos = users
-  .filter(user => user.active)
-  .reduce((acc, user) => acc + user.salary, 0)
-
-console.log("11. Soma total salários:", somaSalarios)
-console.log("12. Média salarial:", mediaSalarios)
-console.log("13. Média de idade:", mediaIdade)
-console.log("14. Usuários ativos:", usuariosAtivos)
-console.log("15. Usuários inativos:", usuariosInativos)
-console.log("16. Maior salário:", maiorSalario)
-console.log("17. Menor salário:", menorSalario)
-console.log("18. Soma salários ativos:", somaSalariosAtivos)
+    }
+    
+    ativos.forEach(user=>{
+    container.appendChild(createCard(user))
+    })
+    
+    container.innerHTML += `
+    <hr>
+    <p>Média salarial dos ativos: ${mediaSalarioAtivos.toFixed(2)}</p>
+    <p>Total da folha salarial: ${totalFolha}</p>
+    <p>Usuários por cargo: ${JSON.stringify(usuariosPorCargo)}</p>
+    <p>Lista salário > 5000: ${JSON.stringify(lista5000)}</p>
+    <p>Média idade managers ativos: ${mediaIdadeManagers.toFixed(2)}</p>
+    <p>Cargo com maior soma salarial: ${cargoMaiorSalario}</p>
+    <p>Maior salário entre ativos: ${maiorSalarioAtivo.name}</p>
+    `
