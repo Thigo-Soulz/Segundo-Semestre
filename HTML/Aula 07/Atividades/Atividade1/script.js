@@ -92,3 +92,38 @@ const mappedPeople = users.map((users) =>{
     return users.name
 })
 console.log(mappedPeople)
+
+// 11. Soma total dos salários
+const somaSalarios = users.reduce((acc, user) => acc + user.salary, 0)
+
+// 12. Média salarial
+const mediaSalarios = somaSalarios / users.length
+
+// 13. Média de idade
+const mediaIdade = users.reduce((acc, user) => acc + user.age, 0) / users.length
+
+// 14. Contar usuários ativos
+const usuariosAtivos = users.filter(user => user.active).length
+
+// 15. Contar usuários inativos
+const usuariosInativos = users.filter(user => !user.active).length
+
+// 16. Maior salário
+const maiorSalario = Math.max(...users.map(user => user.salary))
+
+// 17. Menor salário
+const menorSalario = Math.min(...users.map(user => user.salary))
+
+// 18. Soma dos salários dos usuários ativos
+const somaSalariosAtivos = users
+  .filter(user => user.active)
+  .reduce((acc, user) => acc + user.salary, 0)
+
+console.log("11. Soma total salários:", somaSalarios)
+console.log("12. Média salarial:", mediaSalarios)
+console.log("13. Média de idade:", mediaIdade)
+console.log("14. Usuários ativos:", usuariosAtivos)
+console.log("15. Usuários inativos:", usuariosInativos)
+console.log("16. Maior salário:", maiorSalario)
+console.log("17. Menor salário:", menorSalario)
+console.log("18. Soma salários ativos:", somaSalariosAtivos)
