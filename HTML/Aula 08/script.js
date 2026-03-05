@@ -1,12 +1,16 @@
-const pessoas = require('./data.json')
+const data = require('./data.json')
 
-const totalSalarios = pessoas.reduce((acc,p)=> acc + p.salary,0)
+const pessoas = Array.isArray(data) ? data : data.users || data.pessoas || []
+
+const totalSalarios = pessoas.reduce((acc,p)=> acc + (p.salary || 0),0)
 
 const mediaSalario =
-totalSalarios / pessoas.length
+pessoas.length ? totalSalarios / pessoas.length : 0
 
 const mediaIdade =
-pessoas.reduce((acc,p)=> acc + p.age,0) / pessoas.length
+pessoas.length
+? pessoas.reduce((acc,p)=> acc + (p.age || 0),0) / pessoas.length
+: 0
 
 const ativos =
 pessoas.filter(p=> p.active).length
@@ -15,14 +19,15 @@ const inativos =
 pessoas.filter(p=> !p.active).length
 
 const maiorSalario =
-Math.max(...pessoas.map(p=>p.salary))
+Math.max(...pessoas.map(p=>p.salary || 0))
 
 const menorSalario =
-Math.min(...pessoas.map(p=>p.salary))
+Math.min(...pessoas.map(p=>p.salary || 0))
 
 const salariosAtivos =
-pessoas.filter(p=>p.active)
-.reduce((acc,p)=> acc + p.salary,0)
+pessoas
+.filter(p=>p.active)
+.reduce((acc,p)=> acc + (p.salary || 0),0)
 
 const usuariosPorCargo =
 pessoas.reduce((acc,p)=>{
@@ -31,7 +36,8 @@ return acc
 },{})
 
 const listaMaior5000 =
-pessoas.filter(p=>p.salary > 5000)
+pessoas
+.filter(p=>p.salary > 5000)
 .map(p=>({name:p.name, role:p.role}))
 
 console.log("Total salários:", totalSalarios)
